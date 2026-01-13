@@ -1,0 +1,24 @@
+# robots.txt для SNAKKONG
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.wwebjs_auth/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://snakkong.ru/sitemap.xml
+
+# Основные поисковики
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Скорость сканирования для Yandex
+Host: snakkong.ru
+Crawl-delay: 1

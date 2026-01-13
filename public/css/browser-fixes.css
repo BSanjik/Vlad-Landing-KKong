@@ -1,0 +1,175 @@
+/* ===== Browser-Specific Fixes ===== */
+
+/* IE 10-11 Fixes */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE 10-11 CSS */
+    .benefits-grid,
+    .products-grid,
+    .reviews-grid,
+    .about-grid {
+        display: -ms-flexbox;
+        -ms-flex-wrap: wrap;
+    }
+    
+    .benefit-card,
+    .product-card,
+    .review-card {
+        -ms-flex: 1 1 auto;
+    }
+}
+
+/* Edge Legacy Fixes */
+@supports (-ms-ime-align:auto) {
+    .modal {
+        display: -ms-flexbox;
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
+    }
+}
+
+/* Safari Fixes */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        /* Safari-only styles */
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        button {
+            -webkit-appearance: button;
+        }
+    }
+}
+
+/* Firefox Fixes */
+@-moz-document url-prefix() {
+    /* Firefox-only styles */
+    .form-group input,
+    .form-group textarea {
+        -moz-appearance: none;
+    }
+}
+
+/* Flexbox Fallbacks for Old Browsers */
+.flex-fallback {
+    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* Grid Fallbacks for IE 11 and Old Browsers */
+.grid-fallback {
+    display: block;
+}
+
+@supports (display: grid) {
+    .grid-fallback {
+        display: grid;
+    }
+}
+
+/* Sticky Position Fallback */
+.sticky-fallback {
+    position: relative;
+}
+
+@supports (position: sticky) or (position: -webkit-sticky) {
+    .sticky-fallback {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+/* Object-fit Fallback for IE */
+.object-fit-fallback {
+    background-size: cover;
+    background-position: center;
+}
+
+@supports (object-fit: cover) {
+    .object-fit-fallback {
+        object-fit: cover;
+        background-size: auto;
+    }
+}
+
+/* Backdrop Filter Fallback */
+.backdrop-filter-fallback {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+    .backdrop-filter-fallback {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .back-to-top,
+    .cookie-consent,
+    .preloader,
+    .modal {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    .hero {
+        page-break-after: always;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    body {
+        background: #000;
+        color: #fff;
+    }
+    
+    .benefit-card,
+    .product-card,
+    .review-card,
+    .faq-item {
+        border: 2px solid #fff;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode Support (for browsers with native dark mode) */
+@media (prefers-color-scheme: dark) {
+    /* Site is already dark, so no changes needed */
+}
+
+/* Light Mode Override (if user prefers light mode) */
+@media (prefers-color-scheme: light) {
+    /* Keep dark theme as it's brand identity */
+}
